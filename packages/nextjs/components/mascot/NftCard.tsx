@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useDeployedContractInfo, useScaffoldContractRead, useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 
 export const NftCard = ({
@@ -29,8 +29,8 @@ export const NftCard = ({
   const hatAddr = hatContractData?.address as string;
   const scarfAddr = scarfContractData?.address as string;
 
-  const hatId = Number((upgrageIds as { hatId?: bigint })?.hatId);
-  const scarfId = Number((upgrageIds as { scarfId?: bigint })?.scarfId);
+  const [hatId, setHatId] = useState<number>(0);
+  const [scarfId, setScarfId] = useState<number>(0);
 
   const { writeAsync: removeHat, isMining: removeHatMining } = useScaffoldContractWrite({
     contractName: "Mascot",
@@ -62,6 +62,14 @@ export const NftCard = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [removeHatMining, removeScarfMining]);
 
+  useEffect(() => {
+    if (upgrageIds) {
+      const [hatId, scarfId] = Object.values(upgrageIds);
+      setHatId(hatId);
+      setScarfId(scarfId);
+    }
+  }, [upgrageIds]);
+
   return (
     <div className="h-full border-2 rounded-xl overflow-hidden border-black w-full text-xs">
       <div
@@ -74,21 +82,28 @@ export const NftCard = ({
         }}
         dangerouslySetInnerHTML={{ __html: svgImage }}
       />
-      {/* <Image src={svgImage} alt="My Image" width={200} height={200} /> */}
       <div className="mt-4 px-4 mb-2">
         <div> {name} </div>
         <div> {description} </div>
       </div>
-      {hatId > 0 && (
-        <button onClick={() => removeHat()} className="w-full bg-red-300 px-4 py-2  mt-2 hover:bg-red-500">
-          Remove Hat
-        </button>
-      )}
-      {scarfId > 0 && (
-        <button onClick={() => removeScarf()} className="w-full bg-red-300 px-4 py-2  mt-1 hover:bg-red-500">
-          Remove Scarf
-        </button>
-      )}
+      <div className="flex flex-col items-center">
+        {hatId > 0 && (
+          <button
+            onClick={() => removeHat()}
+            className="w-[80%] bg-red-300 px-4 py-2 rounded-md  mt-2 hover:bg-red-500"
+          >
+            Remove Hat
+          </button>
+        )}
+        {scarfId > 0 && (
+          <button
+            onClick={() => removeScarf()}
+            className="w-[80%] bg-red-300 px-4 py-2 rounded-md my-1 hover:bg-red-500"
+          >
+            Remove Scarf
+          </button>
+        )}
+      </div>
     </div>
   );
 };

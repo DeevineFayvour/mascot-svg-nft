@@ -27,7 +27,7 @@ const Home: NextPage = () => {
       contractAddresses: [contractAddr],
     });
     if (nft?.ownedNfts.length > 0) setNfts(nft?.ownedNfts);
-    console.log(nft.ownedNfts);
+    // console.log(nft.ownedNfts);
   };
 
   const { writeAsync: mintNft, isMining } = useScaffoldContractWrite({
@@ -88,7 +88,7 @@ const Home: NextPage = () => {
           {!nftLoading && nfts && (
             <div className="grid md:grid-cols-5 grid-cols-4 h-full">
               {nfts.map(item => {
-                console.log(item);
+                // console.log(item);
                 return (
                   <div key={item.tokenId} className="mx-1">
                     <NftCard
