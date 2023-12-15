@@ -3,6 +3,7 @@
 
 
 🧪 What better time to have a penguin nft project than Christmas season. Merry Christmas in advance. You can mint accessories and make your penguin even more jolly.
+
 https://mascot-svg.vercel.app/
 
 ⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, and Typescript.
@@ -53,18 +54,6 @@ Visit your app on: `http://localhost:3000`. You can interact with your smart con
 
 Run smart contract test with `yarn hardhat:test`
 
-- Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
-- Edit your frontend in `packages/nextjs/pages`
-- Edit your deployment scripts in `packages/hardhat/deploy`
 
-
-## Documentation
-
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
-
-To know more about its features, check out our [website](https://scaffoldeth.io).
-
-## Contributing to Scaffold-ETH 2
-
-We welcome contributions to Scaffold-ETH 2!
+Built with Scaffold-ETH 2!
 
