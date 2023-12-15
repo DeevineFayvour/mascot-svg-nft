@@ -1,5 +1,7 @@
 # 🏗 Mascot-svg-project
 
+![mascot](https://github.com/DeevineFayvour/mascot-svg-nft/assets/138030813/38e2ff52-295f-4ac2-93ed-9c418876417e)
+
 
 
 🧪 What better time to have a penguin nft project than Christmas season. Merry Christmas in advance. You can mint accessories and make your penguin even more jolly.
@@ -55,5 +57,5 @@ Visit your app on: `http://localhost:3000`. You can interact with your smart con
 Run smart contract test with `yarn hardhat:test`
 
 
-Built with Scaffold-ETH 2!
+Built with [Scaffold-ETH 2!](https://github.com/scaffold-eth/scaffold-eth-2)
 
